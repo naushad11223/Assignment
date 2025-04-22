@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Quiz App</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: skyblue;
+      padding: 0;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: #007BFF;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .instructor {
+      font-size: 1em;
+      font-style: italic;
+    }
+
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    #lastScore {
+      font-style: italic;
+      color: gray;
+      margin-bottom: 10px;
+    }
+
+    .question {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+
+    .answers {
+      margin-bottom: 20px;
+    }
+
+    .answers label {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 1.2em;
+      cursor: pointer;
+      position: relative;
+      padding-left: 40px;
+      transition: color 0.3s ease;
+      padding: 10px 20px;
+      background-color: #f9f9f9;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .answers input[type="radio"] {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      appearance: none;
+      border: 2px solid #007BFF;
+      background-color: white;
+      transition: background-color 0.3s, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .answers input[type="radio"]:checked {
+      background-color: #007BFF;
+      border-color: #007BFF;
+      transform: scale(1.2);
+    }
+
+    .answers input[type="radio"]:checked + label {
+      color: #007BFF;
+    }
+
+    .answers input[type="radio"]:hover {
+      border-color: #0056b3;
+      transform: scale(1.1);
+    }
+
+    .answers label:hover {
+      background-color: #e3e3e3;
+      color: #0056b3;
+    }
+
+    #nextBtn, #restartBtn {
+      padding: 12px 20px;
+      font-size: 1em;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #nextBtn:hover, #restartBtn:hover {
+      background-color: #0056b3;
+    }
+
+    #score {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    footer {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div>Quiz App</div>
+    <div class="instructor">Instructor: Abu Naushad</div>
+  </div>
+
+  <div class="container">
+    <div id="lastScore"></div>
+
+    <div id="quiz">
+      <div id="question" class="question"></div>
+      <div id="answer-buttons" class="answers"></div>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <div id="score" style="display: none;"></div>
+    <button id="restartBtn" style="display: none;">Restart Quiz</button>
+  </div>
+
+  <footer>
+    <p>Quiz App - 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
